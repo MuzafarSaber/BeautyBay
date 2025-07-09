@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senora - Beauty Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: url('https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=1920') center/cover;
+            height: 500px;
+        }
+        .product-card {
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .brand-color {
+            background-color: #ff4e8d;
+        }
+        .btn-senora {
+            background-color: #ff4e8d;
+            color: white;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark brand-color py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">SENORA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Makeup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Skincare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Fragrance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Hair</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tools</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center">
+        <div class="container text-center text-white">
+            <h1 class="display-1 fw-bold">Discover Your Beauty</h1>
+            <p class="fs-4">Premium cosmetics for every skin type</p>
+            <button class="btn btn-light btn-lg px-5 py-3 fw-bold mt-3">SHOP NOW</button>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Best Sellers</h2>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600" class="card-img-top" alt="Lipstick">
+                        <div class="card-body">
+                            <h5 class="card-title">Matte Lipstick</h5>
+                            <p class="card-text">Long-lasting vibrant color in 12 shades</p>
+                            <p class="fw-bold">$24.99</p>
+                            <button class="btn btn-senora">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600" class="card-img-top" alt="Foundation">
+                        <div class="card-body">
+                            <h5 class="card-title">Hydrating Foundation</h5>
+                            <p class="card-text">Weightless coverage for 24 hours</p>
+                            <p class="fw-bold">$39.99</p>
+                            <button class="btn btn-senora">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1595425977379-9a5b0f9c9d24?auto=format&fit=crop&w=600" class="card-img-top" alt="Skincare">
+                        <div class="card-body">
+                            <h5 class="card-title">Vitamin C Serum</h5>
+                            <p class="card-text">Brightening formula with antioxidants</p>
+                            <p class="fw-bold">$49.99</p>
+                            <button class="btn btn-senora">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600" class="card-img-top" alt="Perfume">
+                        <div class="card-body">
+                            <h5 class="card-title">Floral Eau de Parfum</h5>
+                            <p class="card-text">Signature scent with jasmine notes</p>
+                            <p class="fw-bold">$89.99</p>
+                            <button class="btn btn-senora">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>SENORA</h3>
+                    <p>Premium beauty products for the modern woman</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-white">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <form>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <button type="submit" class="btn btn-senora">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
