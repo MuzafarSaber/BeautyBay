@@ -1,683 +1,124 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senora - Premium Beauty & Cosmetics</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap">
-    <style>
-        :root {
-            --senora-pink: #ff4e8d;
-            --senora-gold: #d4af37;
-            --senora-dark: #1a1a1a;
-            --senora-light: #f9f6f2;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), 
-                        url('https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=1920') center/cover;
-            height: 90vh;
-            position: relative;
-        }
-        
-        .navbar {
-            padding: 20px 0;
-            transition: all 0.3s;
-        }
-        
-        .navbar-scrolled {
-            padding: 10px 0;
-            background-color: rgba(26, 26, 26, 0.95) !important;
-            backdrop-filter: blur(10px);
-        }
-        
-        .product-card {
-            transition: all 0.4s;
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            height: 100%;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .brand-color {
-            background-color: var(--senora-pink);
-        }
-        
-        .btn-senora {
-            background-color: var(--senora-pink);
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-senora:hover {
-            background-color: #e0437d;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 78, 141, 0.4);
-        }
-        
-        .category-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--senora-gold);
-            color: white;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        
-        footer {
-            background-color: var(--senora-dark);
-            color: white;
-            padding: 70px 0 30px;
-        }
-        
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: #333;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            transition: all 0.3s;
-            color: white;
-            font-size: 18px;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--senora-pink);
-            transform: translateY(-5px);
-            text-decoration: none;
-        }
-        
-        .newsletter-input {
-            border-radius: 30px 0 0 30px;
-            border: none;
-            padding: 14px 25px;
-            background: rgba(255,255,255,0.9);
-        }
-        
-        .newsletter-btn {
-            border-radius: 0 30px 30px 0;
-            border: none;
-            background-color: var(--senora-gold);
-            color: white;
-            padding: 14px 30px;
-            font-weight: 600;
-        }
-        
-        .section-title {
-            position: relative;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--senora-pink);
-        }
-        
-        .feature-box {
-            padding: 30px;
-            border-radius: 15px;
-            background: white;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: all 0.3s;
-            height: 100%;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
-        .feature-box i {
-            font-size: 3rem;
-            color: var(--senora-pink);
-            margin-bottom: 20px;
-        }
-        
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            text-align: center;
-        }
-        
-        .discount-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--senora-pink);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            margin: 20px 0;
-        }
-        
-        .testimonial-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid var(--senora-pink);
-        }
-        
-        .brand-logo {
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.3s;
-        }
-        
-        .brand-logo:hover {
-            filter: grayscale(0);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        
-        .offer-card {
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            height: 350px;
-        }
-        
-        .offer-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                height: 70vh;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senora Beauty</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fff6f9;
+    }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      color: white;
+      position: relative;
+    }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .section-title {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .footer {
+      background-color: #111;
+      color: white;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-2" href="#">
-                <i class="fas fa-star me-2"></i>SENORA
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fw-medium">
-                    <li class="nav-item mx-2"><a class="nav-link active" href="#">HOME</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="#">SHOP</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="#">BRANDS</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="#">NEW ARRIVALS</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="#">BEST SELLERS</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="#">OFFERS</a></li>
-                </ul>
-                <div class="d-flex ms-lg-4">
-                    <a href="#" class="btn btn-outline-light mx-2"><i class="fas fa-search"></i></a>
-                    <a href="#" class="btn btn-outline-light mx-2"><i class="fas fa-user"></i></a>
-                    <a href="#" class="btn btn-outline-light mx-2"><i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero d-flex align-items-center">
-        <div class="hero-content">
-            <div class="container">
-                <h1 class="display-1 fw-bold mb-4">BEAUTY REIMAGINED</h1>
-                <p class="fs-3 mb-5">Premium cosmetics curated for your unique radiance</p>
-                <div class="d-flex justify-content-center flex-wrap">
-                    <a href="#" class="btn btn-light btn-lg px-5 py-3 fw-bold fs-5 me-3 mb-3">SHOP COLLECTION</a>
-                    <a href="#" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold fs-5 mb-3">DISCOVER BRANDS</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-overlay text-center p-5">
+      <div>
+        <h1>Welcome to Senora Beauty</h1>
+        <p class="lead">Elegance, Empowerment, and Radiance for Every Iraqi Woman</p>
+        <a href="#" class="btn btn-light btn-lg mt-3">Explore Products</a>
+      </div>
+    </div>
+  </div>
 
-    <!-- Features Section -->
-    <section class="py-5 bg-light">
-        <div class="container py-5">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <i class="fas fa-truck"></i>
-                        <h4>Free Shipping</h4>
-                        <p>Free worldwide shipping on orders over $50</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <i class="fas fa-undo"></i>
-                        <h4>Easy Returns</h4>
-                        <p>30-day hassle-free returns on all products</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <i class="fas fa-gift"></i>
-                        <h4>Gift Packaging</h4>
-                        <p>Beautiful gift wrapping available on request</p>
-                    </div>
-                </div>
-            </div>
+  <!-- FEATURED PRODUCTS -->
+  <div class="container mt-5">
+    <h2 class="section-title">Bestsellers</h2>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1589987607627-b80c5c31c6d5?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Lipstick">
+          <div class="card-body">
+            <h5 class="card-title">Velvet Lipstick</h5>
+            <p class="card-text">Long-lasting, bold color for every occasion.</p>
+            <a href="#" class="btn btn-dark">Shop Now</a>
+          </div>
         </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="py-5">
-        <div class="container py-5">
-            <h2 class="section-title">SHOP BY CATEGORY</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="offer-card">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800" class="img-fluid w-100 h-100" alt="Makeup" style="object-fit: cover;">
-                        <div class="offer-content">
-                            <h3>MAKEUP</h3>
-                            <p>Lips, Eyes, Face & More</p>
-                            <a href="#" class="btn btn-senora">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="offer-card">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800" class="img-fluid w-100 h-100" alt="Skincare" style="object-fit: cover;">
-                        <div class="offer-content">
-                            <h3>SKINCARE</h3>
-                            <p>Creams, Serums & Treatments</p>
-                            <a href="#" class="btn btn-senora">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="offer-card">
-                        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800" class="img-fluid w-100 h-100" alt="Fragrance" style="object-fit: cover;">
-                        <div class="offer-content">
-                            <h3>FRAGRANCE</h3>
-                            <p>Perfumes, Colognes & Sets</p>
-                            <a href="#" class="btn btn-senora">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1620446196984-2c1c0f0e40cb?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Skincare">
+          <div class="card-body">
+            <h5 class="card-title">Hydrating Serum</h5>
+            <p class="card-text">Glowing skin starts here. Perfect for dry climates.</p>
+            <a href="#" class="btn btn-dark">Shop Now</a>
+          </div>
         </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="d-flex justify-content-between align-items-center mb-5">
-                <h2 class="section-title">BEST SELLERS</h2>
-                <a href="#" class="btn btn-senora">View All Products</a>
-            </div>
-            <div class="row g-4">
-                <!-- Product 1 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100">
-                        <span class="category-badge">MAKEUP</span>
-                        <div class="discount-badge">-20%</div>
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600" class="card-img-top" alt="Lipstick">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">LIPSTICK</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <span class="text-dark ms-2">4.5</span>
-                                </div>
-                            </div>
-                            <h5 class="card-title">Velvet Matte Lipstick</h5>
-                            <p class="card-text">Long-lasting vibrant color in 12 shades</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <p class="fw-bold fs-4 mb-0">$24.99</p>
-                                    <small class="text-muted text-decoration-line-through">$31.99</small>
-                                </div>
-                                <button class="btn btn-senora">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100">
-                        <span class="category-badge">SKINCARE</span>
-                        <img src="https://images.unsplash.com/photo-1595425977379-9a5b0f9c9d24?auto=format&fit=crop&w=600" class="card-img-top" alt="Skincare">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">SERUM</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-dark ms-2">5.0</span>
-                                </div>
-                            </div>
-                            <h5 class="card-title">Vitamin C Serum</h5>
-                            <p class="card-text">Brightening formula with antioxidants</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <p class="fw-bold fs-4 mb-0">$49.99</p>
-                                <button class="btn btn-senora">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100">
-                        <span class="category-badge">FRAGRANCE</span>
-                        <div class="discount-badge">NEW</div>
-                        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600" class="card-img-top" alt="Perfume">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">PERFUME</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <span class="text-dark ms-2">4.0</span>
-                                </div>
-                            </div>
-                            <h5 class="card-title">Floral Eau de Parfum</h5>
-                            <p class="card-text">Signature scent with jasmine notes</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <p class="fw-bold fs-4 mb-0">$89.99</p>
-                                <button class="btn btn-senora">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100">
-                        <span class="category-badge">MAKEUP</span>
-                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600" class="card-img-top" alt="Foundation">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">FOUNDATION</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <span class="text-dark ms-2">4.5</span>
-                                </div>
-                            </div>
-                            <h5 class="card-title">Hydrating Foundation</h5>
-                            <p class="card-text">Weightless coverage for 24 hours</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <p class="fw-bold fs-4 mb-0">$39.99</p>
-                                <button class="btn btn-senora">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1622676365421-71a71a7cb1b9?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Perfume">
+          <div class="card-body">
+            <h5 class="card-title">Rose Oud Perfume</h5>
+            <p class="card-text">A touch of the Middle East in every bottle.</p>
+            <a href="#" class="btn btn-dark">Shop Now</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <!-- Special Offers -->
-    <section class="py-5 bg-light">
-        <div class="container py-5">
-            <h2 class="section-title">SPECIAL OFFERS</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="offer-card">
-                        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1200" class="img-fluid w-100 h-100" alt="Special Offer" style="object-fit: cover;">
-                        <div class="offer-content">
-                            <h2 class="fw-bold">SUMMER GLOW COLLECTION</h2>
-                            <p class="fs-5">Save 30% on our best-selling summer products</p>
-                            <a href="#" class="btn btn-senora btn-lg">SHOP NOW</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="offer-card">
-                        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1200" class="img-fluid w-100 h-100" alt="Special Offer" style="object-fit: cover;">
-                        <div class="offer-content">
-                            <h2 class="fw-bold">NEW FRAGRANCE LAUNCH</h2>
-                            <p class="fs-5">Get a free gift with any perfume purchase</p>
-                            <a href="#" class="btn btn-senora btn-lg">DISCOVER</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- CATEGORIES / PROMO BANNERS -->
+  <div class="container mt-5">
+    <h2 class="section-title">Explore Categories</h2>
+    <div class="row mt-4">
+      <div class="col-md-6 mb-3">
+        <div class="bg-light text-center p-5 border rounded">
+          <h3>New Arrivals</h3>
+          <p>Fresh beauty just dropped</p>
+          <a href="#" class="btn btn-outline-dark">Browse</a>
         </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-5">
-        <div class="container py-5">
-            <h2 class="section-title">WHAT OUR CUSTOMERS SAY</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="testimonial-img">
-                        <div class="text-warning mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="fst-italic">"The Vitamin C Serum transformed my skin! I've never received so many compliments on my complexion."</p>
-                        <h5 class="mt-4">Emma Johnson</h5>
-                        <p class="text-muted">Verified Customer</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img">
-                        <div class="text-warning mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="fst-italic">"The matte lipstick lasts all day without drying my lips. I've bought it in three different shades already!"</p>
-                        <h5 class="mt-4">Sophia Martinez</h5>
-                        <p class="text-muted">Verified Customer</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-img">
-                        <div class="text-warning mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="fst-italic">"Senora's customer service is exceptional. They helped me find the perfect skincare routine for my skin type."</p>
-                        <h5 class="mt-4">Olivia Williams</h5>
-                        <p class="text-muted">Verified Customer</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="bg-light text-center p-5 border rounded">
+          <h3>Skincare Essentials</h3>
+          <p>For healthy, radiant skin</p>
+          <a href="#" class="btn btn-outline-dark">Browse</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <!-- Newsletter -->
-    <section class="py-5 brand-color text-white">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h2 class="fw-bold display-5">JOIN THE SENORA BEAUTY CLUB</h2>
-                    <p class="fs-5">Subscribe to get exclusive offers, early access to new products, and beauty tips</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <input type="email" class="form-control newsletter-input fs-5" placeholder="Your email address">
-                        <button class="btn newsletter-btn fw-bold fs-5">SUBSCRIBE</button>
-                    </div>
-                    <p class="mt-3">By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <div class="footer text-center">
+    <p>&copy; 2025 Senora Beauty — All Rights Reserved.</p>
+    <p>Follow us on Instagram @senorabeauty</p>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h3 class="fw-bold mb-4">
-                        <i class="fas fa-star me-2"></i>SENORA
-                    </h3>
-                    <p class="mb-4">Premium beauty products for the modern woman. Cruelty-free and sustainably sourced.</p>
-                    <div class="mb-4">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <h5 class="mb-4">SHOP</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Makeup</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Skincare</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Fragrance</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Hair Care</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Tools & Brushes</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <h5 class="mb-4">HELP</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Shipping</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Returns</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Track Order</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <h5 class="mb-4">CONTACT</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-map-marker-alt me-3"></i> 123 Beauty Avenue, Paris, France</li>
-                        <li class="mb-3"><i class="fas fa-phone me-3"></i> +1 (800) SEN-ORA1</li>
-                        <li class="mb-3"><i class="fas fa-envelope me-3"></i> hello@senorabeauty.com</li>
-                        <li class="mt-4">
-                            <div class="d-flex">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="me-2" height="30">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="me-2" height="30">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="Amex" class="me-2" height="30">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/PayPal_Logo_Icon_2014.svg" alt="PayPal" class="me-2" height="30">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-5 bg-secondary">
-            <div class="text-center text-muted">
-                <p>&copy; 2023 Senora Beauty. All rights reserved. | <a href="#" class="text-muted">Privacy Policy</a> | <a href="#" class="text-muted">Terms of Service</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom Script -->
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scrolled');
-            } else {
-                navbar.classList.remove('navbar-scrolled');
-            }
-        });
-        
-        // Simple animation for product cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const productCards = document.querySelectorAll('.product-card');
-            
-            productCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-15px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-        });
-    </script>
 </body>
 </html>
